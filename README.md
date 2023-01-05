@@ -65,7 +65,12 @@ for study only,  build pass in linux  ( centOS 8 )
 1. some hardcode in [Jamfile.jam](Jamfile.jam) like <include> <library>  
 2. b2 build static fail, it not like cmake that build static one file 
 
-
+### ref
+install vcpkg
+```
+git clone https://github.com/microsoft/vcpkg
+./vcpkg/bootstrap-vcpkg.sh
+```
 
 2023/01/05
 
