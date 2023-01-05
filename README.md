@@ -52,7 +52,7 @@ make -B
 
 check out [conanfile.txt](conanfile.txt) for libtorrent library include for build 
 
-check out [Jamfile.jam](Jamfile.jam) for b2 build config
+check out [Jamfile.jam](Jamfile.jam) for b2 build config ( some hardcode , update soon for better intergrate with conan )
 
 check out [CMakeLists.txt](CMakeLists.txt) for cmake build config
 
