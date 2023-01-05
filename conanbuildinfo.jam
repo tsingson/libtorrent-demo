@@ -1,0 +1,118 @@
+#|
+    B2 definitions for Conan packages. This is a generated file.
+    Edit the corresponding conanfile.txt instead.
+|#
+
+import path ;
+import project ;
+import modules ;
+import feature ;
+
+local base-project = [ project.current ] ;
+local base-project-mod = [ $(base-project).project-module ] ;
+local base-project-location = [ project.attribute $(base-project-mod) location ] ;
+
+rule project-define ( id )
+{
+    id = $(id:L) ;
+    local saved-project = [ modules.peek project : .base-project ] ;
+    local id-location = [ path.join $(base-project-location) $(id) ] ;
+    local id-mod = [ project.load $(id-location) : synthesize ] ;
+    project.initialize $(id-mod) : $(id-location) ;
+    project.inherit-attributes $(id-mod) : $(base-project-mod) ;
+    local attributes = [ project.attributes $(id-mod) ] ;
+    $(attributes).set parent-module : $(base-project-mod) : exact ;
+    modules.poke $(base-project-mod) : $(id)-mod : $(id-mod) ;
+    modules.poke [ CALLER_MODULE ] : $(id)-mod : $(id-mod) ;
+    modules.poke project : .base-project : $(saved-project) ;
+    IMPORT $(__name__)
+        : constant-if call-in-project
+        : $(id-mod)
+        : constant-if call-in-project ;
+    if [ project.is-jamroot-module $(base-project-mod) ]
+    {
+        use-project /$(id) : $(id) ;
+    }
+    return $(id-mod) ;
+}
+
+rule constant-if ( name : value * )
+{
+    if $(__define_constants__) && $(value)
+    {
+        call-in-project : constant $(name) : $(value) ;
+        modules.poke $(__name__) : $(name) : [ modules.peek $(base-project-mod) : $(name) ] ;
+    }
+}
+
+rule call-in-project ( project-mod ? : rule-name args * : * )
+{
+    project-mod ?= $(base-project-mod) ;
+    project.push-current [ project.target $(project-mod) ] ;
+    local result = [ modules.call-in $(project-mod) :
+        $(2) : $(3) : $(4) : $(5) : $(6) : $(7) : $(8) : $(9) : $(10) :
+        $(11) : $(12) : $(13) : $(14) : $(15) : $(16) : $(17) : $(18) :
+        $(19) ] ;
+    project.pop-current ;
+    return $(result) ;
+}
+
+rule include-conanbuildinfo ( cbi )
+{
+    include $(cbi) ;
+}
+
+IMPORT $(__name__)
+    : project-define constant-if call-in-project include-conanbuildinfo
+    : $(base-project-mod)
+    : project-define constant-if call-in-project include-conanbuildinfo ;
+
+if ! ( relwithdebinfo in [ feature.values variant ] )
+{
+    variant relwithdebinfo : : <optimization>speed <debug-symbols>on <inlining>full <runtime-debugging>off ;
+}
+if ! ( minsizerel in [ feature.values variant ] )
+{
+    variant minsizerel : : <optimization>space <debug-symbols>off <inlining>full <runtime-debugging>off ;
+}
+
+local __conanbuildinfo__ = [ GLOB $(__file__:D) : conanbuildinfo-*.jam : downcase ] ;
+{
+    local __define_constants__ = yes ;
+    for local __cbi__ in $(__conanbuildinfo__)
+    {
+        call-in-project : include-conanbuildinfo $(__cbi__) ;
+    }
+}
+
+
+# libtorrent
+project-define libtorrent ;
+
+
+# boost
+project-define boost ;
+
+
+# openssl
+project-define openssl ;
+
+
+# zlib
+project-define zlib ;
+
+
+# bzip2
+project-define bzip2 ;
+
+
+# libbacktrace
+project-define libbacktrace ;
+
+{
+    local __define_targets__ = yes ;
+    for local __cbi__ in $(__conanbuildinfo__)
+    {
+        call-in-project : include-conanbuildinfo $(__cbi__) ;
+    }
+}

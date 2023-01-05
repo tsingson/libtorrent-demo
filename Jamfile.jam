@@ -1,0 +1,42 @@
+import os ;
+import testing ;
+
+# generate a list of toolsets to test
+local toolset-choices = ;
+
+# Default toolsets
+if [ os.name ] = NT
+{
+  toolset-choices += msvc ;
+}
+else if [ os.name ] = CYGWIN
+{
+  toolset-choices += gcc ;
+}
+else if [ os.name ] = LINUX
+{
+  toolset-choices += gcc ;
+}
+else if [ os.name ] = MACOSX
+{
+  toolset-choices += darwin ;
+}
+
+echo "building for the following toolsets:" ;
+for local t in $(toolset-choices)
+{
+  echo "   * $(t)" ;
+}
+
+
+
+ include <conanbuildinfo.jam> ;
+ include <conanbuildinfo-6bdabc927af69683b2dac82bf5630790.jam> ;
+
+
+# lib spdlog : : <name>spdlog <search>../spdlog <cxxflags>"-std=c++11" ;
+# explicit spdlog ;
+# project : requirements <include>../spdlog/include <library>libtorrent ;
+# project : requirements <include>/libtorrent <library>/libtorrent ;
+exe bt-get : src/bt-get.cpp : <include>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/include" <library>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/lib/libtorrent-rasterbar.so" <variant>release  ;
+exe bt-get3 : src/bt-get3.cpp : <include>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/include" <library>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/lib/libtorrent-rasterbar.so" <variant>release  ;

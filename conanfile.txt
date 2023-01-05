@@ -1,0 +1,8 @@
+[requires]
+libtorrent/2.0.1
+
+[generators]
+cmake
+b2
+
+

@@ -1,0 +1,666 @@
+#|
+    B2 definitions for Conan packages. This is a generated file.
+    Edit the corresponding conanfile.txt instead.
+|#
+
+# global
+constant-if rootpath(conan,64,x86,linux,gcc-8,release) :
+    ""
+    ;
+
+constant-if includedirs(conan,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde/include"
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde/include/libtorrent"
+    "/root/.conan/data/boost/1.76.0/_/_/package/b4cf9557a183758df446dd9058601421b40166b0/include"
+    "/root/.conan/data/openssl/1.1.1q/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+    "/root/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+    "/root/.conan/data/bzip2/1.0.8/_/_/package/a5875aed3fc7ae8dd0488f7e5e99acbc480d721d/include"
+    "/root/.conan/data/libbacktrace/cci.20210118/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+    ;
+
+constant-if libdirs(conan,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde/lib"
+    "/root/.conan/data/boost/1.76.0/_/_/package/b4cf9557a183758df446dd9058601421b40166b0/lib"
+    "/root/.conan/data/openssl/1.1.1q/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib"
+    "/root/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib"
+    "/root/.conan/data/bzip2/1.0.8/_/_/package/a5875aed3fc7ae8dd0488f7e5e99acbc480d721d/lib"
+    "/root/.conan/data/libbacktrace/cci.20210118/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib"
+    ;
+
+constant-if defines(conan,64,x86,linux,gcc-8,release) :
+    "BOOST_STACKTRACE_ADDR2LINE_LOCATION="/usr/bin/addr2line""
+    "BOOST_STACKTRACE_USE_ADDR2LINE"
+    "BOOST_STACKTRACE_USE_BACKTRACE"
+    "BOOST_STACKTRACE_USE_NOOP"
+    "TORRENT_USE_OPENSSL"
+    "TORRENT_USE_LIBCRYPTO"
+    ;
+
+constant-if requirements(conan,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(conan,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(conan,64,x86,linux,gcc-8,release))
+    <define>$(defines(conan,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(conan,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(conan,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(conan,64,x86,linux,gcc-8,release))
+    ;
+
+# libtorrent
+constant-if rootpath(libtorrent,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde"
+    ;
+
+constant-if includedirs(libtorrent,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde/include"
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde/include/libtorrent"
+    ;
+
+constant-if libdirs(libtorrent,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libtorrent/2.0.1/_/_/package/04d8e9f352d54bf82afe8cbfeae0791f553eafde/lib"
+    ;
+
+constant-if defines(libtorrent,64,x86,linux,gcc-8,release) :
+    "TORRENT_USE_OPENSSL"
+    "TORRENT_USE_LIBCRYPTO"
+    ;
+
+constant-if requirements(libtorrent,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(libtorrent,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(libtorrent,64,x86,linux,gcc-8,release))
+    <define>$(defines(libtorrent,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(libtorrent,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(libtorrent,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(libtorrent,64,x86,linux,gcc-8,release))
+    ;
+
+# boost
+constant-if rootpath(boost,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/boost/1.76.0/_/_/package/b4cf9557a183758df446dd9058601421b40166b0"
+    ;
+
+constant-if includedirs(boost,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/boost/1.76.0/_/_/package/b4cf9557a183758df446dd9058601421b40166b0/include"
+    ;
+
+constant-if libdirs(boost,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/boost/1.76.0/_/_/package/b4cf9557a183758df446dd9058601421b40166b0/lib"
+    ;
+
+constant-if defines(boost,64,x86,linux,gcc-8,release) :
+    "BOOST_STACKTRACE_ADDR2LINE_LOCATION="/usr/bin/addr2line""
+    "BOOST_STACKTRACE_USE_ADDR2LINE"
+    "BOOST_STACKTRACE_USE_BACKTRACE"
+    "BOOST_STACKTRACE_USE_NOOP"
+    ;
+
+constant-if requirements(boost,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(boost,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(boost,64,x86,linux,gcc-8,release))
+    <define>$(defines(boost,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(boost,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(boost,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(boost,64,x86,linux,gcc-8,release))
+    ;
+
+constant-if user(stacktrace_addr2line_available,boost,64,x86,linux,gcc-8,release) :
+    "True"
+    ;
+
+# openssl
+constant-if rootpath(openssl,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/openssl/1.1.1q/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a"
+    ;
+
+constant-if includedirs(openssl,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/openssl/1.1.1q/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+    ;
+
+constant-if libdirs(openssl,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/openssl/1.1.1q/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib"
+    ;
+
+constant-if requirements(openssl,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(openssl,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(openssl,64,x86,linux,gcc-8,release))
+    <define>$(defines(openssl,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(openssl,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(openssl,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(openssl,64,x86,linux,gcc-8,release))
+    ;
+
+# zlib
+constant-if rootpath(zlib,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a"
+    ;
+
+constant-if includedirs(zlib,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+    ;
+
+constant-if libdirs(zlib,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib"
+    ;
+
+constant-if requirements(zlib,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(zlib,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(zlib,64,x86,linux,gcc-8,release))
+    <define>$(defines(zlib,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(zlib,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(zlib,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(zlib,64,x86,linux,gcc-8,release))
+    ;
+
+# bzip2
+constant-if rootpath(bzip2,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/bzip2/1.0.8/_/_/package/a5875aed3fc7ae8dd0488f7e5e99acbc480d721d"
+    ;
+
+constant-if includedirs(bzip2,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/bzip2/1.0.8/_/_/package/a5875aed3fc7ae8dd0488f7e5e99acbc480d721d/include"
+    ;
+
+constant-if libdirs(bzip2,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/bzip2/1.0.8/_/_/package/a5875aed3fc7ae8dd0488f7e5e99acbc480d721d/lib"
+    ;
+
+constant-if requirements(bzip2,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(bzip2,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(bzip2,64,x86,linux,gcc-8,release))
+    <define>$(defines(bzip2,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(bzip2,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(bzip2,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(bzip2,64,x86,linux,gcc-8,release))
+    ;
+
+# libbacktrace
+constant-if rootpath(libbacktrace,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libbacktrace/cci.20210118/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a"
+    ;
+
+constant-if includedirs(libbacktrace,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libbacktrace/cci.20210118/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+    ;
+
+constant-if libdirs(libbacktrace,64,x86,linux,gcc-8,release) :
+    "/root/.conan/data/libbacktrace/cci.20210118/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib"
+    ;
+
+constant-if requirements(libbacktrace,64,x86,linux,gcc-8,release) :
+    <address-model>64
+    <architecture>x86
+    <target-os>linux
+    <toolset>gcc-8
+    <variant>release
+    ;
+
+constant-if usage-requirements(libbacktrace,64,x86,linux,gcc-8,release) :
+    <include>$(includedirs(libbacktrace,64,x86,linux,gcc-8,release))
+    <define>$(defines(libbacktrace,64,x86,linux,gcc-8,release))
+    <cflags>$(cflags(libbacktrace,64,x86,linux,gcc-8,release))
+    <cxxflags>$(cppflags(libbacktrace,64,x86,linux,gcc-8,release))
+    <link>shared:<linkflags>$(sharedlinkflags(libbacktrace,64,x86,linux,gcc-8,release))
+    ;
+
+# libtorrent
+if $(__define_targets__) {
+    call-in-project $(libtorrent-mod) : lib torrent-rasterbar
+        : /boost//libs /openssl//libs
+        : <name>torrent-rasterbar <search>$(libdirs(libtorrent,64,x86,linux,gcc-8,release)) $(requirements(libtorrent,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(libtorrent,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(libtorrent-mod) : explicit torrent-rasterbar ; }
+
+if $(__define_targets__) {
+    call-in-project $(libtorrent-mod) : alias libs
+        : /boost//libs /openssl//libs torrent-rasterbar
+        : $(requirements(libtorrent,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(libtorrent,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(libtorrent-mod) : explicit libs ; }
+
+# boost
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_contract
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_contract <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_contract ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_coroutine
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_coroutine <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_coroutine ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_fiber_numa
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_fiber_numa <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_fiber_numa ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_fiber
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_fiber <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_fiber ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_context
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_context <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_context ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_graph
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_graph <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_graph ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_iostreams
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_iostreams <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_iostreams ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_json
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_json <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_json ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_log_setup
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_log_setup <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_log_setup ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_log
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_log <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_log ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_locale
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_locale <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_locale ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_math_c99
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_math_c99 <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_math_c99 ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_math_c99f
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_math_c99f <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_math_c99f ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_math_c99l
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_math_c99l <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_math_c99l ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_math_tr1
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_math_tr1 <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_math_tr1 ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_math_tr1f
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_math_tr1f <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_math_tr1f ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_math_tr1l
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_math_tr1l <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_math_tr1l ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_nowide
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_nowide <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_nowide ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_program_options
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_program_options <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_program_options ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_random
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_random <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_random ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_regex
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_regex <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_regex ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_stacktrace_addr2line
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_stacktrace_addr2line <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_stacktrace_addr2line ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_stacktrace_backtrace
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_stacktrace_backtrace <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_stacktrace_backtrace ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_stacktrace_basic
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_stacktrace_basic <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_stacktrace_basic ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_stacktrace_noop
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_stacktrace_noop <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_stacktrace_noop ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_timer
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_timer <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_timer ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_type_erasure
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_type_erasure <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_type_erasure ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_thread
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_thread <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_thread ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_atomic
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_atomic <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_atomic ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_chrono
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_chrono <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_chrono ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_container
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_container <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_container ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_date_time
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_date_time <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_date_time ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_unit_test_framework
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_unit_test_framework <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_unit_test_framework ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_prg_exec_monitor
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_prg_exec_monitor <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_prg_exec_monitor ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_test_exec_monitor
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_test_exec_monitor <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_test_exec_monitor ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_exception
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_exception <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_exception ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_wave
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_wave <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_wave ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_filesystem
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_filesystem <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_filesystem ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_wserialization
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_wserialization <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_wserialization ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : lib boost_serialization
+        : /zlib//libs /bzip2//libs /libbacktrace//libs
+        : <name>boost_serialization <search>$(libdirs(boost,64,x86,linux,gcc-8,release)) $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit boost_serialization ; }
+
+if $(__define_targets__) {
+    call-in-project $(boost-mod) : alias libs
+        : /zlib//libs /bzip2//libs /libbacktrace//libs boost_contract boost_coroutine boost_fiber_numa boost_fiber boost_context boost_graph boost_iostreams boost_json boost_log_setup boost_log boost_locale boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_nowide boost_program_options boost_random boost_regex boost_stacktrace_addr2line boost_stacktrace_backtrace boost_stacktrace_basic boost_stacktrace_noop boost_timer boost_type_erasure boost_thread boost_atomic boost_chrono boost_container boost_date_time boost_unit_test_framework boost_prg_exec_monitor boost_test_exec_monitor boost_exception boost_wave boost_filesystem boost_wserialization boost_serialization
+        : $(requirements(boost,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(boost,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(boost-mod) : explicit libs ; }
+
+# openssl
+if $(__define_targets__) {
+    call-in-project $(openssl-mod) : lib ssl
+        : 
+        : <name>ssl <search>$(libdirs(openssl,64,x86,linux,gcc-8,release)) $(requirements(openssl,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(openssl,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(openssl-mod) : explicit ssl ; }
+
+if $(__define_targets__) {
+    call-in-project $(openssl-mod) : lib crypto
+        : 
+        : <name>crypto <search>$(libdirs(openssl,64,x86,linux,gcc-8,release)) $(requirements(openssl,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(openssl,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(openssl-mod) : explicit crypto ; }
+
+if $(__define_targets__) {
+    call-in-project $(openssl-mod) : alias libs
+        : ssl crypto
+        : $(requirements(openssl,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(openssl,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(openssl-mod) : explicit libs ; }
+
+# zlib
+if $(__define_targets__) {
+    call-in-project $(zlib-mod) : lib z
+        : 
+        : <name>z <search>$(libdirs(zlib,64,x86,linux,gcc-8,release)) $(requirements(zlib,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(zlib,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(zlib-mod) : explicit z ; }
+
+if $(__define_targets__) {
+    call-in-project $(zlib-mod) : alias libs
+        : z
+        : $(requirements(zlib,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(zlib,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(zlib-mod) : explicit libs ; }
+
+# bzip2
+if $(__define_targets__) {
+    call-in-project $(bzip2-mod) : lib bz2
+        : 
+        : <name>bz2 <search>$(libdirs(bzip2,64,x86,linux,gcc-8,release)) $(requirements(bzip2,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(bzip2,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(bzip2-mod) : explicit bz2 ; }
+
+if $(__define_targets__) {
+    call-in-project $(bzip2-mod) : alias libs
+        : bz2
+        : $(requirements(bzip2,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(bzip2,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(bzip2-mod) : explicit libs ; }
+
+# libbacktrace
+if $(__define_targets__) {
+    call-in-project $(libbacktrace-mod) : lib backtrace
+        : 
+        : <name>backtrace <search>$(libdirs(libbacktrace,64,x86,linux,gcc-8,release)) $(requirements(libbacktrace,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(libbacktrace,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(libbacktrace-mod) : explicit backtrace ; }
+
+if $(__define_targets__) {
+    call-in-project $(libbacktrace-mod) : alias libs
+        : backtrace
+        : $(requirements(libbacktrace,64,x86,linux,gcc-8,release))
+        :
+        : $(usage-requirements(libbacktrace,64,x86,linux,gcc-8,release)) ;
+    call-in-project $(libbacktrace-mod) : explicit libs ; }
