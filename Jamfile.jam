@@ -39,4 +39,4 @@ for local t in $(toolset-choices)
 # project : requirements <include>../spdlog/include <library>libtorrent ;
 # project : requirements <include>/libtorrent <library>/libtorrent ;
 exe bt-get : src/bt-get.cpp : <include>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/include" <library>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/lib/libtorrent-rasterbar.so" <variant>release  ;
-exe bt-get3 : src/bt-get3.cpp : <include>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/include" <library>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/lib/libtorrent-rasterbar.so" <variant>release  ;
+exe bt-get3 : src/bt-get3.cpp : <include>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/include" <library>"/root/.conan/data/libtorrent/2.0.1/_/_/package/2f26c31d6c3899ac7c196e81ed1cccc010790272/lib/libtorrent-rasterbar.so" <variant>release <link>static ;

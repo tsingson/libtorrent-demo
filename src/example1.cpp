@@ -1,35 +1,3 @@
-/*
-
-Copyright (c) 2020, Arvid Norberg
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in
-      the documentation and/or other materials provided with the distribution.
-    * Neither the name of the author nor the names of its
-      contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.
-
-*/
-
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -48,17 +16,18 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <libtorrent/error_code.hpp>
 #include <libtorrent/magnet_uri.hpp>
 
-namespace bb {
+namespace {
 
 using clk = std::chrono::steady_clock;
 
 // return the name of a torrent status enum
-char const *state(lt::torrent_status::state_t s) {
+char const* state(lt::torrent_status::state_t s)
+{
 #ifdef __clang__
-#pragma clang diagnostic push
+  #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wcovered-switch-default"
 #endif
-  switch (s) {
+  switch(s) {
     case lt::torrent_status::checking_files: return "checking";
     case lt::torrent_status::downloading_metadata: return "dl metadata";
     case lt::torrent_status::downloading: return "downloading";
@@ -72,7 +41,8 @@ char const *state(lt::torrent_status::state_t s) {
 #endif
 }
 
-std::vector<char> load_file(char const *filename) {
+std::vector<char> load_file(char const* filename)
+{
   std::ifstream ifs(filename, std::ios_base::binary);
   ifs.unsetf(std::ios_base::skipws);
   return {std::istream_iterator<char>(ifs), std::istream_iterator<char>()};
@@ -82,14 +52,24 @@ std::vector<char> load_file(char const *filename) {
 std::atomic<bool> shut_down{false};
 
 void sighandler(int) { shut_down = true; }
-void bt_download(const char *input, const char *save_path) {
+
+} // anonymous namespace
+
+int main(int argc, char const* argv[]) try
+{
+  if (argc != 2) {
+    std::cerr << "usage: " << argv[0] << " <magnet-url>" << std::endl;
+    return 1;
+  }
+
   // load session parameters
   auto session_params = load_file(".session");
   lt::session_params params = session_params.empty()
                               ? lt::session_params() : lt::read_session_params(session_params);
-  params.settings.set_int(lt::settings_pack::alert_mask, lt::alert_category::error
-      | lt::alert_category::storage
-      | lt::alert_category::status);
+  params.settings.set_int(lt::settings_pack::alert_mask
+      , lt::alert_category::error
+                              | lt::alert_category::storage
+                              | lt::alert_category::status);
 
   lt::session ses(params);
   clk::time_point last_save_resume = clk::now();
@@ -97,12 +77,12 @@ void bt_download(const char *input, const char *save_path) {
   // load resume data from disk and pass it in as we add the magnet link
   auto buf = load_file(".resume_file");
 
-  lt::add_torrent_params magnet = lt::parse_magnet_uri(input);
+  lt::add_torrent_params magnet = lt::parse_magnet_uri(argv[1]);
   if (buf.size()) {
     lt::add_torrent_params atp = lt::read_resume_data(buf);
     if (atp.info_hashes == magnet.info_hashes) magnet = std::move(atp);
   }
-  magnet.save_path = save_path; // save in current dir
+  magnet.save_path = "."; // save in current dir
   ses.async_add_torrent(std::move(magnet));
 
   // this is the handle we'll set once we get the notification of it being
@@ -114,7 +94,7 @@ void bt_download(const char *input, const char *save_path) {
   // set when we're exiting
   bool done = false;
   for (;;) {
-    std::vector < lt::alert * > alerts;
+    std::vector<lt::alert*> alerts;
     ses.pop_alerts(&alerts);
 
     if (shut_down) {
@@ -127,7 +107,7 @@ void bt_download(const char *input, const char *save_path) {
       }
     }
 
-    for (lt::alert const *a : alerts) {
+    for (lt::alert const* a : alerts) {
       if (auto at = lt::alert_cast<lt::add_torrent_alert>(a)) {
         h = at->handle;
       }
@@ -162,7 +142,7 @@ void bt_download(const char *input, const char *save_path) {
 
         // we only have a single torrent, so we know which one
         // the status is for
-        lt::torrent_status const &s = st->status[0];
+        lt::torrent_status const& s = st->status[0];
         std::cout << '\r' << state(s.state) << ' '
                   << (s.download_payload_rate / 1000) << " kB/s "
                   << (s.total_done / 1000) << " kB ("
@@ -190,27 +170,14 @@ void bt_download(const char *input, const char *save_path) {
   {
     std::ofstream of(".session", std::ios_base::binary);
     of.unsetf(std::ios_base::skipws);
-    auto const b = write_session_params_buf(ses.session_state(), lt::save_state_flags_t::all());
+    auto const b = write_session_params_buf(ses.session_state()
+        , lt::save_state_flags_t::all());
     of.write(b.data(), int(b.size()));
   }
 
-}
-} // anonymous namespace
-
-using namespace bb;
-
-int main(int argc, char const *argv[]) try {
-  if (argc != 2) {
-    std::cerr << "usage: " << argv[0] << " <magnet-url>" << std::endl;
-    return 1;
-  }
-  auto input = argv[1];
-  auto save_path = ".";
-  bt_download(input, save_path);
   std::cout << "\ndone, shutting down" << std::endl;
 }
-catch (std::exception &e) {
+catch (std::exception& e)
+{
   std::cerr << "Error: " << e.what() << std::endl;
 }
-
-
