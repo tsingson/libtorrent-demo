@@ -4,8 +4,4 @@ libtorrent/2.0.1
 [generators]
 cmake_find_package
 cmake_paths
-cmake
 b2
-
-[options]
-libtorrent:shared=False

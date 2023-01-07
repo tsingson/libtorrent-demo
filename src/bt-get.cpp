@@ -56,7 +56,7 @@ int main(int argc, char const *argv[]) try {
   lt::torrent_handle h = ses.add_torrent(std::move(atp));
 
   for (;;) {
-    std::vector < lt::alert * > alerts;
+    std::vector<lt::alert *> alerts;
     ses.pop_alerts(&alerts);
 
     for (lt::alert const *a : alerts) {
