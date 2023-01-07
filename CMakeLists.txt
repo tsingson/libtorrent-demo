@@ -12,8 +12,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_BUILD_TYPE "Release")
 
 # 添加这两行
-include(./conanbuildinfo.cmake)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
+#find_package(libtorrent CONFIG REQUIRED)
 
 include_directories(${CONAN_INCLUDE_DIRS})
 link_directories(${CONAN_LIB_DIRS})
